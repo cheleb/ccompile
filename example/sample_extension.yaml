@@ -14,6 +14,12 @@ platforms:
     linker:    
       arguments: ['-shared']
       output_file: 'libsample_extension.so'            
+  macos:
+    compiler:
+      arguments: ['-fPIC', '-Wall']
+    linker:
+      arguments: ['-shared', '-undefined', 'dynamic_lookup']
+      output_file: 'libsample_extension.so'
   windows:    
     compiler:
       defines: {'DART_SHARED_LIB':}        
@@ -24,4 +30,5 @@ platforms:
       input_files:
       - 'dart.lib'      
       - 'sample_extension_dllmain_win'
-      libpaths: ['{DART_SDK}/bin']      
+      libpaths: ['{DART_SDK}/bin']
+
